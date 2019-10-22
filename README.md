@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GraphHub
 
-## Available Scripts
+GraphHub is without question the best way to interact with GitHub. We've hired 1200 code monkeys to build the amazing piece of software. We truly believe it will change the world.
 
-In the project directory, you can run:
+## GitHub Personal Access Token
 
-### `yarn start`
+We're interacting with GitHub today, so you'll need a [GitHub Personal Access Token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line). You only need the `repo` related permissions.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Cloning Down
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* To run this project, set up the GitHub token mentioned above and then clone the project.
 
-### `yarn test`
+* Install dependencies with `$ yarn install`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Run `$ cp ./src/config/secrets.example.js ./src/config/secrets.js`
 
-### `yarn build`
+* Run `$ yarn start`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## GraphiQL
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+GraphiQL is one of the most popular development tools for GraphQL. It's similar to Postman, but focused on GraphQL. Let's download the [desktop version](https://github.com/skevy/graphiql-app) to get started.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Note: If you're having trouble doing that, you can use the [GraphQL Explorer](https://developer.github.com/v4/explorer/) on GitHub's site.
 
-### `yarn eject`
+## Web IDE Alternative
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you're having trouble setting the app up locally, you can use [GitPod](https://gitpod.io/#github.com/ni3t/graphhub) to run a VSCode WebIDE.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Resources
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Slides](https://docs.google.com/presentation/d/1hN-xRhvRc7LtGhg0HwALUOo8ti_lo0cHsj0-Ef4cm_0/edit?usp=sharing)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[React Apollo Docs](https://www.apollographql.com/docs/react/)
 
-## Learn More
+[GitHub GraphQL Docs](https://developer.github.com/v4/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[GraphQL With Ruby Talk with Riaz Virani](https://www.youtube.com/watch?v=XVEsCKGNkus)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
