@@ -10,8 +10,28 @@ export const REPOSITORY = gql`
       stargazers {
         totalCount
       }
-      issues(filterBy: { states: [OPEN] }) {
+      issues(filterBy: { states: [OPEN] }, first: 100) {
         totalCount
+        nodes {
+          id
+          title
+          number
+          author {
+            login
+          }
+          createdAt
+          body
+          comments(first: 100) {
+            nodes {
+              id
+              body
+              author {
+                avatarUrl
+              }
+              createdAt
+            }
+          }
+        }
       }
     }
   }

@@ -21,9 +21,6 @@ export const GraphQLRepo = ({ owner, repo, calls }) => {
     }
   };
 
-  const issues = [];
-  const comments = [];
-
   return (
     <div className="column">
       <div className="box">
@@ -33,14 +30,11 @@ export const GraphQLRepo = ({ owner, repo, calls }) => {
         {data && <SummaryInfo repository={data.repository} />}
         <hr />
         <nav className="panel">
-          <PanelHeading issues={issues}></PanelHeading>
-          {issues.map((issue, index) => (
-            <IssueBody
-              index={index}
-              issue={issue}
-              comments={comments}
-            ></IssueBody>
-          ))}
+          <PanelHeading issues={data && data.repository.issues}></PanelHeading>
+          {data &&
+            data.repository.issues.nodes.map((issue, index) => (
+              <IssueBody index={index} issue={issue}></IssueBody>
+            ))}
         </nav>
       </div>
     </div>
