@@ -8,17 +8,29 @@ We're interacting with GitHub today, so you'll need a [GitHub Personal Access To
 
 ## Cloning Down
 
-* To run this project, set up the GitHub token mentioned above and then clone the project.
+- To run this project, set up the GitHub token mentioned above and then clone the project.
 
-* Install dependencies with `$ yarn install`
+- Install dependencies with `$ yarn install`
 
-* Run `$ cp ./src/config/secrets.example.js ./src/config/secrets.js`
+- Run `$ cp ./src/config/secrets.example.js ./src/config/secrets.js`
 
-* Run `$ yarn start`
+- Run `$ yarn start`
 
 ## GraphiQL
 
 GraphiQL is one of the most popular development tools for GraphQL. It's similar to Postman, but focused on GraphQL. Let's download the [desktop version](https://github.com/skevy/graphiql-app) to get started.
+
+### Setting up Authorization in GraphiQL
+
+Click the "Edit HTTP Headers" button in thje top right corner
+
+Click "+Add Header"
+
+Under Header Name put `Authorization`
+
+Under Header value put `token <your token here>` with the token you created earlier.
+
+All of the calls will be made using the `https://api.github.com/graphql` endpoint
 
 Note: If you're having trouble doing that, you can use the [GraphQL Explorer](https://developer.github.com/v4/explorer/) on GitHub's site.
 
@@ -35,4 +47,3 @@ If you're having trouble setting the app up locally, you can use [GitPod](https:
 [GitHub GraphQL Docs](https://developer.github.com/v4/)
 
 [GraphQL With Ruby Talk with Riaz Virani](https://www.youtube.com/watch?v=XVEsCKGNkus)
-
