@@ -2,8 +2,8 @@ import React from 'react';
 
 export default ({ repository }) => {
   const {
-    stargazers_count,
-    open_issues_count,
+    stargazers,
+    issues,
     owner: { login },
     name
   } = repository;
@@ -16,11 +16,11 @@ export default ({ repository }) => {
       <div className="flex flex-col w-24">
         <div className="flex flex-row justify-between">
           <p>Stars</p>
-          <p>{stargazers_count}</p>
+          <p>{stargazers.totalCount}</p>
         </div>
         <div className="flex flex-row justify-between">
           <p>Issues</p>
-          <p>{open_issues_count}</p>
+          <p>{issues.totalCount}</p>
         </div>
       </div>
     </div>

@@ -2,10 +2,12 @@ import React from 'react';
 import Header from './components/Header';
 import RestRepo from './components/rest/RestRepo';
 import GraphQLRepo from './components/graphql/GraphQLRepo';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { apolloClient } from './services/apolloClient';
 
 function App() {
-  const owner ='ni3t'
-  const repo = 'graphhub'
+  const owner = 'ni3t';
+  const repo = 'graphhub';
   const [calls, setCalls] = React.useState({
     rest: { callCount: 0, size: 0, time: 0 },
     gql: { callCount: 0, size: 0, time: 0 }
@@ -25,12 +27,9 @@ function App() {
           owner={owner}
           repo={repo}
         ></RestRepo>
-        <GraphQLRepo
-          calls={calls}
-          setCalls={setCalls}
-          owner={owner}
-          repo={repo}
-        ></GraphQLRepo>
+        <ApolloProvider client={apolloClient}>
+          <GraphQLRepo calls={calls} owner={owner} repo={repo}></GraphQLRepo>
+        </ApolloProvider>
       </div>
     </div>
   );
