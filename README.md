@@ -14,11 +14,15 @@ We're interacting with GitHub today, so you'll need a [GitHub Personal Access To
 
 - Run `$ cp ./src/config/secrets.example.js ./src/config/secrets.js`
 
+- In `./src/config/secrets.js` add the token you created and your Github username
+
 - Run `$ yarn start`
 
 ## GraphiQL
 
 GraphiQL is one of the most popular development tools for GraphQL. It's similar to Postman, but focused on GraphQL. Let's download the [desktop version](https://github.com/skevy/graphiql-app) to get started.
+
+if you have homebrew you can run: `brew cask install graphiql`
 
 ### Setting up Authorization in GraphiQL
 
