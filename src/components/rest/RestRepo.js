@@ -99,13 +99,15 @@ export class RestRepo extends React.Component {
   }
 
   async closeIssue(issueNumber, index) {
-    await closeIssueRest({owner: this.props.owner, repo: this.props.repo, issueNumber})
-    const newIssues = this.state.issues
-    newIssues.splice(index, 1)
-    this.setState({issues: newIssues})
-    console.log(newIssues)
+    await closeIssueRest({
+      owner: this.props.owner,
+      repo: this.props.repo,
+      issueNumber
+    });
+    const newIssues = this.state.issues;
+    newIssues.splice(index, 1);
+    this.setState({ issues: newIssues });
   }
-
 
   render() {
     return (
@@ -124,7 +126,9 @@ export class RestRepo extends React.Component {
                 index={index}
                 issue={issue}
                 comments={this.state.comments}
-                closeIssue={(issueNumber, index) => this.closeIssue(issueNumber)}
+                closeIssue={(issueNumber, index) =>
+                  this.closeIssue(issueNumber)
+                }
               ></IssueBody>
             ))}
           </nav>

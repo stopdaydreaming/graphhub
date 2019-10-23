@@ -11,7 +11,12 @@ export const IssueBody = ({ closeIssue, index, issue, comments }) => {
       <div className="flex flex-col w-full">
         <div className="flex flex-row justify-between">
           <p className="font-bold mb-2">{issue.title}</p>
-          <button className="button" onClick={() => closeIssue(issue.number, index)}>Close</button>
+          <button
+            className="button"
+            onClick={() => closeIssue(issue.number, index)}
+          >
+            Close
+          </button>
         </div>
         <div className="flex flex-row justify-between mb-2">
           <span className="is-size-7 flex flex-row items-end">
@@ -33,10 +38,14 @@ export const IssueBody = ({ closeIssue, index, issue, comments }) => {
         </div>
         {issueComments &&
           issueComments.map(comment => (
-            <div key={comment.number} className="flex flex-col bg-gray-200 mb-1">
+            <div key={comment.id} className="flex flex-col bg-gray-200 mb-1">
               <div className="flex flex-row px-2 pt-2">
                 <div className="flex-grow">{comment.body}</div>
-                <img alt="avatar" src={`${comment.user.avatar_url}`} className="h-6" />
+                <img
+                  alt="avatar"
+                  src={`${comment.user.avatar_url}`}
+                  className="h-6"
+                />
               </div>
               <div className="p-2 w-full flex flex-row justify-end">
                 <span className="is-size-7">

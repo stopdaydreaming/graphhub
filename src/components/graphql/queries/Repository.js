@@ -18,6 +18,7 @@ export const REPOSITORY = gql`
           number
           author {
             login
+            avatarUrl
           }
           createdAt
           body

@@ -9,7 +9,9 @@ import { IssueBody } from './IssueBody';
 import { REPOSITORY } from './queries/Repository';
 
 export const GraphQLRepo = ({ owner, repo, calls }) => {
-  const { data } = useQuery(REPOSITORY, { variables: { owner, name: repo } });
+  const { data, refetch } = useQuery(REPOSITORY, {
+    variables: { owner, name: repo }
+  });
 
   const responseSize = data && JSON.stringify(data).length;
 
@@ -33,7 +35,12 @@ export const GraphQLRepo = ({ owner, repo, calls }) => {
           <PanelHeading issues={data && data.repository.issues}></PanelHeading>
           {data &&
             data.repository.issues.nodes.map((issue, index) => (
-              <IssueBody index={index} issue={issue}></IssueBody>
+              <IssueBody
+                key={issue.number}
+                index={index}
+                issue={issue}
+                refetch={refetch}
+              ></IssueBody>
             ))}
         </nav>
       </div>

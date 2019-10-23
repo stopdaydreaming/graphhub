@@ -1,30 +1,37 @@
 import React from 'react';
 import { DateTime } from 'luxon';
+import { useMutation } from '@apollo/react-hooks';
+import { CLOSE_ISSUE } from './mutations/CloseIssue';
 
-export const IssueBody = ({ closeIssue, index, issue }) => {
+export const IssueBody = ({ issue, refetch }) => {
+  const [closeIssueMutation] = useMutation(CLOSE_ISSUE, {
+    variables: { input: { issueId: issue.id } }
+  });
+
+  const closeIssue = React.useCallback(() => {
+    closeIssueMutation().then(() => refetch());
+  }, [closeIssueMutation, refetch]);
+
   return (
     <div className="panel-block">
       <div className="flex flex-col w-full">
         <div className="flex flex-row justify-between">
           <p className="font-bold mb-2">{issue.title}</p>
-          <button
-            className="button"
-            onClick={() => closeIssue(issue.number, index)}
-          >
+          <button className="button" onClick={closeIssue}>
             Close
           </button>
         </div>
         <div className="flex flex-row justify-between mb-2">
-          <span class="is-size-7 flex flex-row items-end">
+          <span className="is-size-7 flex flex-row items-end">
             <img
-              src="https://avatars2.githubusercontent.com/u/4932641?s=88&v=4"
+              src={issue.author.avatarUrl}
               className="h-8 mr-2"
               alt="GitHub Avatar"
             />
             {issue.author.login}
           </span>
-          <span class="is-size-7 self-end">
-            {DateTime.fromISO(issue.created_at).toLocaleString(
+          <span className="is-size-7 self-end">
+            {DateTime.fromISO(issue.createdAt).toLocaleString(
               DateTime.DATETIME_MED
             )}
           </span>
@@ -34,18 +41,18 @@ export const IssueBody = ({ closeIssue, index, issue }) => {
         </div>
         {issue.comments.nodes.length > 0 &&
           issue.comments.nodes.map(comment => (
-            <div className="flex flex-col bg-gray-200 mb-1">
+            <div key={comment.id} className="flex flex-col bg-gray-200 mb-1">
               <div className="flex flex-row px-2 pt-2">
                 <div className="flex-grow">{comment.body}</div>
                 <img
                   alt="avatar"
-                  src={`${comment.author.avatar_url}`}
+                  src={`${comment.author.avatarUrl}`}
                   className="h-6"
                 />
               </div>
               <div className="p-2 w-full flex flex-row justify-end">
                 <span className="is-size-7">
-                  {DateTime.fromISO(comment.created_at).toLocaleString(
+                  {DateTime.fromISO(comment.createdAt).toLocaleString(
                     DateTime.DATETIME_MED
                   )}
                 </span>
