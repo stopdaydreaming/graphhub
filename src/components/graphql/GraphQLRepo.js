@@ -4,6 +4,10 @@ import SummaryInfo from './SummaryInfo';
 import PanelHeading from './PanelHeading';
 import { IssueBody } from './IssueBody';
 
+import { apolloClient, test } from '../../services/apolloClient';
+
+test();
+
 export const GraphQLRepo = ({ owner, repo, calls, setCalls }) => {
   const repository = {
     owner: {
